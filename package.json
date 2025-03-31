@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/core": "^0.38.0",
+    "@auth/prisma-adapter": "^2.8.0",
     "@prisma/client": "^6.5.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@splinetool/react-spline": "^4.0.0",
@@ -21,6 +23,7 @@
     "lucide-react": "^0.484.0",
     "mongoose": "^8.13.1",
     "next": "15.2.4",
+    "next-auth": "^5.0.0-beta.25",
     "postcss": "^8.5.3",
     "prisma": "^6.5.0",
     "react": "^19.0.0",
