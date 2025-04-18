@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -42,8 +43,10 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  Post          Post[]
+  Post          Post[]    @relation("UserPosts") // Added unique relation name
   Comment       Comment[]
+  liked         Post[]    @relation("UserLikedPosts") // Ensure this exists
+  saved         Post[]    @relation("UserSavedPosts") // Added unique relation name
 }
 
 model VerificationToken {
@@ -65,18 +68,23 @@ model Topic {
 }
 
 model Post {
-  id      String @id @default(cuid())
-  title   String
-  content String
-  userId  String
-  topicId String
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  userId    String
+  topicId   String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  topic    Topic     @relation(fields: [topicId], references: [id])
-  comments Comment[]
+  likes     Int      @default(0)
+  dislikes  Int      @default(0)
+
+  user      User     @relation("UserPosts", fields: [userId], references: [id], onDelete: Cascade)
+  topic     Topic    @relation(fields: [topicId], references: [id])
+  comments  Comment[]
+  likedBy   User[]   @relation("UserLikedPosts") // Ensure this exists
+  savedBy   User[]   @relation("UserSavedPosts") // Added reverse relation
 }
 
 model Comment {

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { SessionProvider } from "next-auth/react"
+import "@/styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import Header from "@/components/header";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+import TopicsHeader from "@/components/topicsHeader";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -27,10 +30,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SessionProvider>
-        {children}
-        </SessionProvider>
-        
+        <div className="container mx-auto max-w-6xl">
+          
+          <SessionProvider>
+            
+            <Header />
+            <TopicsHeader />
+            {children}
+          </SessionProvider>
+        </div>
       </body>
     </html>
   );
