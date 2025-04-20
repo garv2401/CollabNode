@@ -9,19 +9,21 @@ import AutoCarousel from "@/components/AutoCarousel";
 
 export default async function Home() {
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
-      <div className="col-span-2 ">
-        <div className="flex flex-row justify-between items-center mb-1">
-          <h1 className="text-xl font-bold m-2 mb-4">Top Posts</h1>
-          <div className="">
+    <div className="p-4">
+      <div className="flex flex-col-reverse md:grid md:grid-cols-4 gap-4">
+        {/* Posts Section */}
+        <div className="md:col-span-2">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+            <h1 className="text-xl font-bold mb-2 md:mb-4">Top Posts</h1>
             <TopicCreateForm />
           </div>
+          <PostList fetchData={() => fetchTopPosts()} />
         </div>
-        <PostList fetchData={() => fetchTopPosts()} />
-      </div>
 
-      <div className="col-span-2 col-start-3 m-4 flex justify-center items-center ">
-        <AutoCarousel />
+        {/* Carousel Section */}
+        <div className="md:col-span-2 md:col-start-3 m-4 flex justify-center items-center mb-14">
+          <AutoCarousel />
+        </div>
       </div>
     </div>
   );

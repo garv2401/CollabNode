@@ -79,10 +79,10 @@ const AuthHeader = () => {
         <form action={signIn} className="">
           <Button className="shadow-md border-0">Sign in</Button>
         </form>
-
+{/* 
         <form action={signIn} className="">
           <Button className="shadow-md border-0">Sign up</Button>
-        </form>
+        </form> */}
       </>
     );
   }

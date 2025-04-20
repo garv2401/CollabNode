@@ -6,6 +6,8 @@ import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { Post } from '@prisma/client';
 
+
+
 const createPostSchema=zod.object({
     title:zod.string().min(3),
     content:zod.string().min(10)
@@ -22,6 +24,7 @@ type CreatePostError={
 export const createPost=async(slug:string,prevState:CreatePostError,formdata:FormData):Promise<CreatePostError>=>{
     const title=formdata.get('title')?.toString();
     const content=formdata.get('content')?.toString();
+    const image=formdata.get('postImage')?.toString()||"";
 
     const result=createPostSchema.safeParse({title,content});
     if(!result.success){
@@ -59,7 +62,8 @@ export const createPost=async(slug:string,prevState:CreatePostError,formdata:For
                 title:result.data.title,
                 content:result.data.content,
                 userId:session.user.id,
-                topicId:topic.id 
+                topicId:topic.id,
+                image:image
             }
         })
 

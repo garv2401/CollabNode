@@ -16,22 +16,27 @@ const TopicShowPage: React.FC<TopicShowPageProps> = async ({ params }) => {
   return (
     <div className="">
       <Link href={`/`}>
-        <Button variant={"link"}>
+        <Button variant="link">
           <ChevronLeft />
           Back to home
         </Button>
       </Link>
 
-      <div className="grid grid-cols-4 gap-4 p-4">
-        <div className="col-span-2 ">
-          <div className="flex justify-between mb-3">
-            <h1 className="font-bold text-xl mb-2">{slug}</h1>
-            <PostCreateForm slug={slug} />
+      <div className="p-4">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-4 gap-4">
+          {/* Posts Section */}
+          <div className="col-span-1 lg:col-span-2">
+            <div className="flex flex-col lg:flex-row justify-between mb-3 gap-2">
+              <h1 className="font-bold text-xl mb-2">{slug}</h1>
+              <PostCreateForm slug={slug} />
+            </div>
+            <PostList fetchData={() => fetchPostsByTopic(slug)} />
           </div>
-          <PostList fetchData={() => fetchPostsByTopic(slug)} />
-        </div>
-        <div className="col-span-2 col-start-3 m-4 flex justify-center items-center mb-14">
-          <AutoCarousel />
+
+          {/* Carousel Section */}
+          <div className="col-span-1 lg:col-span-2 lg:col-start-3 m-4 flex justify-center items-center mb-14">
+            <AutoCarousel />
+          </div>
         </div>
       </div>
     </div>

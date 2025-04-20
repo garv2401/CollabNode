@@ -7,14 +7,13 @@ import { savePost } from "@/actions/savePost";
 import { unSavePost } from "@/actions/unSavePost";
 
 type saveButtonProps = {
-  post: Post;
+ 
   postId: string;
   userId: string | null;
   val: boolean;
 };
 
 const SaveButton: React.FC<saveButtonProps> = ({
-  post,
   postId,
   userId,
   val,
@@ -31,7 +30,7 @@ const SaveButton: React.FC<saveButtonProps> = ({
           userId && functionCall({ postId, userId });
           setIsSaved(!isSaved);
         }}
-        className="border-0 m-1"
+        className="border-0 m-1 hover:cursor-pointer"
       >
         {isSaved ? (
           <svg

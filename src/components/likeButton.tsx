@@ -1,19 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import { Post } from "@prisma/client";
+//import { Post } from "@prisma/client";
+import {Post} from "@prisma/client"
 import { updateLike } from "@/actions/updateLike";
 import { Button } from "@/components/ui/button";
 import { updateDislike } from "@/actions/updateDislike";
 import { Poor_Story } from "next/font/google";
 
 type LikeButtonProps = {
-  post: Post;
   postId: string;
-  userId: string | null;
+  userId: string | null; 
   val:boolean
 };
 
-const LikeButton: React.FC<LikeButtonProps> = ({ post, postId, userId,val }) => {
+const LikeButton: React.FC<LikeButtonProps> = ({postId, userId,val }) => {
   const [isLiked, setIsLiked] = useState(val);
   const functionCall=isLiked? updateDislike : updateLike;
   
@@ -25,7 +25,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ post, postId, userId,val }) => 
           userId && functionCall({ postId, userId });
           setIsLiked(!isLiked);
         }}
-        className="border-0"
+        className="border-0 hover:cursor-pointer"
       >
         {isLiked ? (
           <svg

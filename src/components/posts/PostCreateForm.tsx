@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { useActionState } from "react";
+import React, { useActionState, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -17,12 +17,42 @@ import { Textarea } from "@/components/ui/textarea";
 import { createTopic } from "@/actions/createTopic";
 import { createPost } from "@/actions/createPost";
 
-type CreatePostFormProps={
-  slug:string
-}
-const PostCreateForm:React.FC<CreatePostFormProps> = ({slug}) => {
+type CreatePostFormProps = {
+  slug: string;
+};
+const PostCreateForm: React.FC<CreatePostFormProps> = ({ slug }) => {
+  const [formState, action] = useActionState(createPost.bind(null, slug), {
+    errors: {},
+  });
 
-  const [formState,action]=useActionState(createPost.bind(null,slug),{errors:{}});
+  const [imageUrl, setImageUrl] = useState("");
+
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      console.log(data.url);
+      if (data.url) {
+        setImageUrl(data.url);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  // useEffect(()=>{
+  //   setImageUrl(image)
+
+  // },imageUrl)
 
   return (
     <Dialog>
@@ -48,7 +78,9 @@ const PostCreateForm:React.FC<CreatePostFormProps> = ({slug}) => {
                 className="col-span-3 border-gray-300 shadow-md"
               />
             </div>
-            {formState.errors.title && <p className="text-sm text-red-600">{formState.errors.title}</p>}
+            {formState.errors.title && (
+              <p className="text-sm text-red-600">{formState.errors.title}</p>
+            )}
             <div className="">
               <Label htmlFor="content" className="text-right my-2">
                 Content
@@ -59,8 +91,31 @@ const PostCreateForm:React.FC<CreatePostFormProps> = ({slug}) => {
                 className="col-span-3 border-gray-300 shadow-md"
               />
             </div>
-            {formState.errors.content && <p className="text-sm text-red-600">{formState.errors.content}</p>}
-            {formState.errors.formError && <div className="border border-red-600 bg-red-200 p-2 text-center rounded-lg text-red-600">{formState.errors.formError + "!"}</div>}
+            {formState.errors.content && (
+              <p className="text-sm text-red-600">{formState.errors.content}</p>
+            )}
+            {formState.errors.formError && (
+              <div className="border border-red-600 bg-red-200 p-2 text-center rounded-lg text-red-600">
+                {formState.errors.formError + "!"}
+              </div>
+            )}
+          </div>
+          <div className="mb-2">
+            <Label htmlFor="image" className="text-right my-2">
+              Upload Image
+            </Label>
+            <Input
+              type="file"
+              accept="image/*"
+              onChange={handleUpload}
+            />
+            <input
+              key={imageUrl}
+              type="hidden"
+              id="postImage"
+              name="postImage"
+              value={imageUrl}
+            />
           </div>
           <DialogFooter>
             <Button

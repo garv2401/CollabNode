@@ -17,8 +17,8 @@ import Image from "next/image";
 
 const slides = [
   "/assets/hero3.png",
-  "/assets/CreateHero.png",
-  "/assets/CommentHero.png",
+  "/assets/hero2.png",
+  "/assets/hero1.png",
 ];
 
 export default function AutoCarousel() {
@@ -39,7 +39,7 @@ export default function AutoCarousel() {
     >
       <CarouselContent>
         {slides.map((item, index) => (
-          <CarouselItem key={index} className="flex justify-center items-center h-70 text-2xl font-bold bg-gray-100">
+          <CarouselItem key={index} className="flex justify-center items-center h-50 md:h-70 text-2xl font-bold bg-gray-100">
             <Image src={item} alt="image" height={500} width={600} className="rounded-2xl"/>
           </CarouselItem>
         ))}
