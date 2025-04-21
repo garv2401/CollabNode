@@ -17,7 +17,7 @@ const SavedPostpage = async () => {
           Back to home
         </Button>
       </Link>
-      <p className="font-semibold m-2">Saved Posts...</p>
+      <p className="font-semibold text-lg m-2">Saved Posts</p>
       <PostList
         fetchData={() => fetchSavedPostsByUserId(session?.user?.id || "")}
       />

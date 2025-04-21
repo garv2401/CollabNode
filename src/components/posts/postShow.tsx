@@ -78,7 +78,7 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
       </div>
       <div className="flex flex-row gap-10">
         <div className="flex flex-row gap-0 p-1">
-          <p className="p-1 pt-2">{post.likedBy.length}</p>
+          <p className="p-1 pt-2 font-semibold">{post.likedBy.length}</p>
           <LikeButton
             val={userIdLikedPostId}
             postId={postId}

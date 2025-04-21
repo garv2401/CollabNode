@@ -17,7 +17,7 @@ const LikedPostPage = async () => {
           Back to home
         </Button>
       </Link>
-      <p className="font-semibold m-2">Liked Posts...</p>
+      <p className="font-semibold m-2 text-lg">Liked Posts...</p>
       <PostList
         fetchData={() => fetchLikedPostsByUserID(session?.user?.id || "")}
       />

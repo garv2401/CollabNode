@@ -17,7 +17,7 @@ const MyPostpage = async () => {
           Back to home
         </Button>
       </Link>
-      <p className="font-semibold m-2">My Posts...</p>
+      <p className="font-semibold text-lg m-2">Shared Posts</p>
       <PostList fetchData={() => fetchPostsByUserId(session?.user?.id || "")} />
     </>
   );

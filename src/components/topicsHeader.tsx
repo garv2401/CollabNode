@@ -45,7 +45,7 @@ const TopicsHeader = async () => {
                 key={topic.id}
                 className="bg-white text-black rounded-xl shadow-md p-2 my-2 hover:bg-gray-900 transition-all duration-200"
               >
-                <DropdownMenuItem className="flex justify-center items-center text-md font-semibold hover:text-gray-300 transition-colors h-5">
+                <DropdownMenuItem className="flex justify-center items-center text-md font-semibold hover:text-white transition-colors h-5">
                   <Link href={`/topic/${topic.slug}`}>{topic.slug}</Link>
                 </DropdownMenuItem>
               </div>

@@ -13,12 +13,9 @@ const SearchPage: React.FC<SearchProps> = async ({ searchParams }) => {
       <p className="text-blue-600 font-medium italic m-3">
         Search results for {term}
       </p>
-
-      <div className="grid grid-cols-5 gap-3">
-        <div className="col-span-3 col-start-2">
-          <PostList fetchData={() => fetchPostsBySearch(term)} />
-        </div>
-      </div>
+      <div className="m-4">
+      <PostList fetchData={() => fetchPostsBySearch(term)} />
+      </div>{" "}
     </>
   );
 };

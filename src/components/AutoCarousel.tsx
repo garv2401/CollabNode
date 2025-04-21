@@ -23,18 +23,21 @@ const slides = [
 
 export default function AutoCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 3000); // Change every 3 seconds
-
+    }, 3000);
+  
+    setHasInitialized(true);
     return () => clearInterval(interval);
   }, []);
+  
 
   return (
     <Carousel
-      opts={{ startIndex: activeIndex }}
+    opts={hasInitialized ?{ startIndex: activeIndex }: undefined}
       className="w-[90%] max-w-xl mx-auto "
     >
       <CarouselContent>

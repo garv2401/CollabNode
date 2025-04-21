@@ -77,7 +77,7 @@ const AuthHeader = () => {
     authContent = (
       <>
         <form action={signIn} className="">
-          <Button className="shadow-md border-0">Sign in</Button>
+          <Button className="border-0">Sign in</Button>
         </form>
 {/* 
         <form action={signIn} className="">
