@@ -4,7 +4,7 @@ import CommentCreateForm from "@/components/comments/CommentCreateForm";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CommentsShowPage from "@/components/comments/CommentShow";
+//import CommentsShowPage from "@/components/comments/CommentShow";
 import CommentList from "@/components/comments/CommentList";
 
 type PostShowPageProps = {

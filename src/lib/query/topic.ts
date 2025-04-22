@@ -1,4 +1,4 @@
-import { Post,Topic } from "@prisma/client";
+import {Topic } from "@prisma/client";
 import {prisma} from "@/lib/index";
 
 

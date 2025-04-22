@@ -39,9 +39,8 @@ export const createComment = async (
         };
     }
 
-    let comment: any;
     try {
-        comment = await prisma.comment.create({
+        await prisma.comment.create({
             data: {
                 content: result.data.content,
                 userId: session.user.id,

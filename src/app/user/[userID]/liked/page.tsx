@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchLikedPostsByUserID } from "@/lib/query/post";
 import { auth } from "@/auth";
-import { redirect } from "next/navigation";
+//import { redirect } from "next/navigation";
 import PostList from "@/components/posts/PostList";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

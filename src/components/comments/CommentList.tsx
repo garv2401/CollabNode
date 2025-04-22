@@ -13,7 +13,7 @@ const CommentList: React.FC<CommentListProps> = async ({ postId }) => {
     <div>
       <h1 className="font-bold">All {comments.length} comments</h1>
       {
-        topLevelComments.map((comment,index)=>(
+        topLevelComments.map((comment)=>(
             <CommentShow key={comment.id} postId={comment.postId} commentId={comment.id}/>
         ))
       }

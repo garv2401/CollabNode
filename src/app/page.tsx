@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+// import Image from "next/image";
+// import { Button } from "@/components/ui/button";
 
-import axios from "axios";
+// import axios from "axios";
 import TopicCreateForm from "@/components/topics/TopicCreateForm";
 import { fetchTopPosts } from "@/lib/query/post";
 import PostList from "@/components/posts/PostList";

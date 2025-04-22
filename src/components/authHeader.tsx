@@ -2,8 +2,6 @@
 import { useSession } from "next-auth/react";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Separator } from "./ui/separator";
 import {
   Popover,
@@ -15,7 +13,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { signIn } from "@/actions/sign-in";
 import { signOut } from "@/actions/sign-out";
-import { Auth } from "@auth/core";
 import Link from "next/link";
 const AuthHeader = () => {
   const session = useSession();

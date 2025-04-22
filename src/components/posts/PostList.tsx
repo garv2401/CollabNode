@@ -1,17 +1,13 @@
 import React from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { PostWithData } from "@/lib/query/post";
 import Link from "next/link";
-import { Inter } from "next/font/google";
 import { auth } from "@/auth";
-const inter = Inter({ subsets: ["latin"] });
 
 type PostListProps = {
   fetchData: () => Promise<PostWithData[]>;
@@ -31,7 +27,7 @@ const PostList: React.FC<PostListProps> = async ({ fetchData }) => {
   //console.log(posts);
   return (
     <div className="flex flex-col gap-2 h-[58vh] overflow-y-auto scrollbar-none">
-      {posts.map((post, index) => (
+      {posts.map((post) => (
         <Card className="border-2 border-gray-300 font-sans" key={post.id}>
           <CardHeader>
             <CardTitle className="text-lg font-bold text-gray-900">

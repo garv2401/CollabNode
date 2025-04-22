@@ -1,18 +1,4 @@
 import React, { Suspense } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "./ui/separator";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-import { signIn } from "@/actions/sign-in";
-import { signOut } from "@/actions/sign-out";
 import AuthHeader from "./authHeader";
 import SearchInput from "./SearchInput";
 import Image from "next/image";

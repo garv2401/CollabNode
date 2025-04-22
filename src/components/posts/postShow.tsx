@@ -1,14 +1,14 @@
 import React from "react";
 import { prisma } from "@/lib/index";
 import { notFound } from "next/navigation";
-import CommentCreateForm from "../comments/CommentCreateForm";
-import like from "@/assets/like.svg";
+// import CommentCreateForm from "../comments/CommentCreateForm";
+// import like from "@/assets/like.svg";
 import LikeButton from "../likeButton";
-import DislikeButton from "../dislikeButton";
+//import DislikeButton from "../dislikeButton";
 import SaveButton from "../saveButton";
 import { auth } from "@/auth";
-import { fetchLikedPosts } from "@/lib/query/post";
-import { User, Post } from "@prisma/client";
+//import { fetchLikedPosts } from "@/lib/query/post";
+import { User} from "@prisma/client";
 import Image from "next/image";
 import DeleteButton from "../deleteButton";
 
@@ -24,9 +24,9 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
       likedBy: true,
     },
   });
-  //console.log(post);
+  console.log(post);
   const session = await auth();
-  const likedPost = await fetchLikedPosts();
+  //const likedPost = await fetchLikedPosts();
   //console.log("Liked posts:", likedPost);
 
   if (!post) {
@@ -82,14 +82,14 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
           <LikeButton
             val={userIdLikedPostId}
             postId={postId}
-            userId={session?.user?.id || null}
+            userId={session?.user?.id ||""}
           />
         </div>
 
         <SaveButton
           val={userSavedPost}
           postId={postId}
-          userId={session?.user?.id || null}
+          userId={session?.user?.id || ""}
         />
         {post.userId === session?.user?.id && <DeleteButton postId={postId}/>}
       </div>

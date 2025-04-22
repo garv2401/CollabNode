@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { createTopic } from "@/actions/createTopic";
+//import { createTopic } from "@/actions/createTopic";
 import { createPost } from "@/actions/createPost";
 
 type CreatePostFormProps = {

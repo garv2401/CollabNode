@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
 //import { Post } from "@prisma/client";
-import {Post} from "@prisma/client"
+//import {Post} from "@prisma/client"
 import { updateLike } from "@/actions/updateLike";
 import { Button } from "@/components/ui/button";
 import { updateDislike } from "@/actions/updateDislike";
-import { Poor_Story } from "next/font/google";
+//import { Poor_Story } from "next/font/google";
 
 type LikeButtonProps = {
   postId: string;
-  userId: string | null; 
+  userId: string; 
   val:boolean
 };
 
@@ -22,7 +22,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({postId, userId,val }) => {
       <Button
         type={"submit"}
         onClick={async () => {
-          userId && functionCall({ postId, userId });
+          functionCall({ postId, userId });
           setIsLiked(!isLiked);
         }}
         className="border-0 hover:cursor-pointer"

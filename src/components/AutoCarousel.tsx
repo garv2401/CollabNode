@@ -9,9 +9,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import hero from "@/assets/hero3.png"
-import create from "@/assets/CreateHero.png"
-import comment from "@/assets/CommentHero.png"
 
 import Image from "next/image";
 

@@ -48,7 +48,7 @@ const CommentCreateForm:React.FC<CommentCreateFormProps> = ({postId,parentId,sta
             isPending?(
               <>
               <Loader2/>
-              "Please wait..."
+              <div>Please wait...</div>
               </>
             ):(
              "Save"

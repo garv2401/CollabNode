@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { Post } from "@prisma/client";
+//import { Post } from "@prisma/client";
 import { Button } from "@/components/ui/button";
-import { Poor_Story } from "next/font/google";
+//import { Poor_Story } from "next/font/google";
 import { savePost } from "@/actions/savePost";
 import { unSavePost } from "@/actions/unSavePost";
 
 type saveButtonProps = {
  
   postId: string;
-  userId: string | null;
+  userId: string;
   val: boolean;
 };
 
@@ -27,7 +27,7 @@ const SaveButton: React.FC<saveButtonProps> = ({
       <Button
         type={"submit"}
         onClick={async () => {
-          userId && functionCall({ postId, userId });
+          functionCall({ postId, userId });
           setIsSaved(!isSaved);
         }}
         className="border-0 m-1 hover:cursor-pointer"

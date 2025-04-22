@@ -1,14 +1,12 @@
 import React from "react";
-import { fetchPosts } from "@/lib/query/post";
+//import { fetchPosts } from "@/lib/query/post";
 import { fetchTopics } from "@/lib/query/topic";
-import { Button } from "./ui/button";
+//import { Button } from "./ui/button";
 import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
