@@ -72,9 +72,9 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
             />
           </div>
         )}
-        <pre className="border-2 border-gray-200 p-2 rounded-sm my-2">
+        <p className="font-mono border-2 border-gray-200 p-2 rounded-sm my-2">
           {post.content}
-        </pre>
+        </p>
       </div>
       <div className="flex flex-row gap-10">
         <div className="flex flex-row gap-0 p-1">

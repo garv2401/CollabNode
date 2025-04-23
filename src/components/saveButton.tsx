@@ -23,7 +23,7 @@ const SaveButton: React.FC<saveButtonProps> = ({
 
   return (
     <div className="flex flex-row gap-0">
-      <p className="p-1 pt-3 font-semibold">{isSaved ? "Saved" : "Save"}</p>
+      <p className="p-1 pt-3 min-w-[51px] font-semibold">{isSaved ? "Saved" : "Save"}</p>
       <Button
         type={"submit"}
         onClick={async () => {
