@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "collabnode",
   description: "Discussion platform",
   icons: {
-    icon: '/assets/Discuss3.jpg', // or .png/.svg
+    icon: '/assets/Discuss3-cropped.jpg', // or .png/.svg
   },
 };
 
