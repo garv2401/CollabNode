@@ -12,13 +12,11 @@ const Header = () => {
         <div className="flex justify-between md:justify-start items-center w-full">
           <div className="flex flex-row gap-2 items-center">
             <Image
-              src="/assets/DiscussLogo2.jpg"
-              height={35}
-              width={35}
+              src="/assets/Discuss4.png"
+              height={170}
+              width={170}
               alt="logo"
-              className="rounded-3xl"
             />
-            <h1 className="font-bold text-2xl text-blue-500">DiscussLy</h1>
           </div>
 
           {/* Right: Auth (on mobile stays in same row) */}

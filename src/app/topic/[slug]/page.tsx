@@ -27,7 +27,9 @@ const TopicShowPage: React.FC<TopicShowPageProps> = async ({ params }) => {
           {/* Posts Section */}
           <div className="col-span-1 lg:col-span-2">
             <div className="flex flex-col lg:flex-row justify-between mb-3 gap-2">
-              <h1 className="font-bold text-xl mb-2">{slug}</h1>
+              <h1 className="font-bold text-xl mb-2">
+                {slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase()}
+              </h1>
               <PostCreateForm slug={slug} />
             </div>
             <PostList fetchData={() => fetchPostsByTopic(slug)} />

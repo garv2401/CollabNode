@@ -11,16 +11,23 @@ const LikedPostPage = async () => {
   const session = await auth();
   return (
     <>
-      <Link href={`/`}>
-        <Button variant={"link"}>
-          <ChevronLeft />
-          Back to home
-        </Button>
-      </Link>
-      <p className="font-semibold m-2 text-lg">Liked Posts...</p>
-      <PostList
-        fetchData={() => fetchLikedPostsByUserID(session?.user?.id || "")}
-      />
+      <div className="w-full md:w-2/3 p-3 md:p-0 flex flex-row-reverse justify-between items-center mx-auto">
+        <Link href={`/`}>
+          <Button
+            variant="link"
+            className="flex items-center text-blue-600 hover:underline"
+          >
+            <ChevronLeft className="h-5 w-5" />
+            <span>Back to home</span>
+          </Button>
+        </Link>
+        <p className="font-semibold text-lg text-center m-2">Liked Posts</p>
+      </div>
+      <div className="w-full md:w-2/3 p-3 md:p-0 md:mx-auto">
+        <PostList
+          fetchData={() => fetchLikedPostsByUserID(session?.user?.id || "")}
+        />
+      </div>
     </>
   );
 };

@@ -24,7 +24,7 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
       likedBy: true,
     },
   });
-  console.log(post);
+  //console.log(post);
   const session = await auth();
   //const likedPost = await fetchLikedPosts();
   //console.log("Liked posts:", likedPost);
@@ -68,7 +68,7 @@ const postShow: React.FC<PostShowPageProps> = async ({ postId }) => {
               alt="postImage"
               width={300}
               height={300}
-              className="w-full h-[250px] sm:w-[80%] sm:h-[250px] lg:w-[40%] lg:h-[40%] object-contain rounded-[10px]"
+              className="w-full h-[250px] sm:w-[80%] sm:h-[250px] lg:w-[60%] lg:h-[50%] object-contain rounded-[10px]"
             />
           </div>
         )}

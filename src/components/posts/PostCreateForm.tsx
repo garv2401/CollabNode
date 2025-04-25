@@ -26,6 +26,7 @@ const PostCreateForm: React.FC<CreatePostFormProps> = ({ slug }) => {
   });
 
   const [imageUrl, setImageUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -35,17 +36,21 @@ const PostCreateForm: React.FC<CreatePostFormProps> = ({ slug }) => {
     formData.append("file", file);
 
     try {
+      setIsUploading(true); // start loading
       const response = await fetch("/api/upload", {
         method: "POST",
         body: formData,
       });
+
       const data = await response.json();
-      console.log(data.url);
+      //console.log(data.url);
       if (data.url) {
         setImageUrl(data.url);
       }
     } catch (error) {
       console.error("Error uploading image:", error);
+    } finally {
+      setIsUploading(false); // stop loading
     }
   };
 
@@ -104,11 +109,7 @@ const PostCreateForm: React.FC<CreatePostFormProps> = ({ slug }) => {
             <Label htmlFor="image" className="text-right my-2">
               Upload Image
             </Label>
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={handleUpload}
-            />
+            <Input type="file" accept="image/*" onChange={handleUpload} />
             <input
               key={imageUrl}
               type="hidden"
@@ -117,6 +118,13 @@ const PostCreateForm: React.FC<CreatePostFormProps> = ({ slug }) => {
               value={imageUrl}
             />
           </div>
+          {isUploading && (
+            <div className="flex flex-row justify-center items-center gap-2 my-2">
+              <p className="text-sm text-gray-600">Uploading</p>
+              <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-gray-500">
+              </div>
+            </div>
+          )}
           <DialogFooter>
             <Button
               className=" border-0 text-white bg-black w-full"

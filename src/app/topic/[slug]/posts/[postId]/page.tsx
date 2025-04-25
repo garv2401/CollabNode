@@ -19,7 +19,7 @@ const PostShowPage: React.FC<PostShowPageProps> = async ({ params }) => {
       <Link href={`/topic/${slug}`}>
         <Button
           variant="link"
-          className="flex items-center space-x-2 text-blue-600 hover:underline"
+          className="flex items-center text-blue-600 hover:underline"
         >
           <ChevronLeft className="h-5 w-5" />
           <span>Back to {slug}</span>
