@@ -1,41 +1,80 @@
-<<<<<<< HEAD
-# Discuss
-Discussion platform
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CollabNode
+
+**CollabNode** is a Quora-inspired full-stack discussion platform built using **Next.js**, **React**, **TypeScript**, and **Prisma**. It enables users to share knowledge, engage in discussions, and discover content with ease.
+
+## Features
+
+- GitHub authentication for secure and seamless login  
+- Create, like, comment on, and delete posts (if you're the author)  
+- View all posts you've shared, liked, or saved  
+- Powerful search bar to explore content site-wide  
+- Full route caching, server-side rendering (SSR), and on-demand revalidation for optimal performance
+
+## Tech Stack
+
+- **Frontend:** Next.js, React, TypeScript  
+- **Backend:** Next.js API Routes  
+- **Database:** sqlite with Prisma ORM  
+- **Authentication:** GitHub OAuth via NextAuth.js  
+- **Deployment:** Render
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/collabnode.git
+cd collabnode
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```env
+DATABASE_URL=your_postgresql_database_url
+GITHUB_ID=your_github_client_id
+GITHUB_SECRET=your_github_client_secret
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+```
+
+> Tip: You can get `GITHUB_ID` and `GITHUB_SECRET` from GitHub Developer Settings.
+
+### 4. Set up the database
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+### 5. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to explore the app locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[https://collabnode.vercel.app](https://collabnode.vercel.app)
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Feel free to open issues, suggest improvements, or submit pull requests.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the [MIT License](LICENSE).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Built with passion and curiosity — feedback is always appreciated!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 2e46d99 (Initial commit from Create Next App)
