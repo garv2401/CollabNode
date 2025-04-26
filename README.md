@@ -64,7 +64,7 @@ Visit `http://localhost:3000` to explore the app locally.
 
 ## Live Demo
 
-[https://collabnode.vercel.app](https://collabnode.vercel.app)
+(https://discuss-dfbj.onrender.com)
 
 ## Contributing
 
